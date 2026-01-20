@@ -1,2 +1,2 @@
 # MPMCSimpleQueue
-A C++20-based Simple MPMC Qeue
+A simplified version of Erik Rigtorp style MPMC Queue with C++20
