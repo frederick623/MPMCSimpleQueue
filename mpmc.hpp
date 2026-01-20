@@ -38,7 +38,7 @@ struct MPMCSimpleQueue {
         // Expected turn for lap N: ticket
         while (slot.turn.load(std::memory_order_acquire)!=ticket) 
         {
-            // spin-wait
+            // Provides a hint to the implementation to reschedule the execution of threads
             std::this_thread::yield();
         }
 
@@ -59,7 +59,7 @@ struct MPMCSimpleQueue {
         // Expected turn: ticket + 1
         while (slot.turn.load(std::memory_order_acquire)!=ticket+1) 
         {
-            // spin-wait
+            // Provides a hint to the implementation to reschedule the execution of threads
             std::this_thread::yield();
         }
 
